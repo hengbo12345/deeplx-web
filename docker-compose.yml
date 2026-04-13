@@ -1,0 +1,37 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${BACKEND_PORT:-8449}:9448"
+    environment:
+      - DEEPLX_URL=${DEEPLX_URL:-http://host.docker.internal:1188}
+      - DEEPLX_TOKEN=${DEEPLX_TOKEN}
+      - SERVER_PORT=${SERVER_PORT:-9448}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - UPLOAD_PATH=${UPLOAD_PATH:-./uploads}
+      - MAX_FILE_SIZE=${MAX_FILE_SIZE:-10485760}
+      - CLEANUP_INTERVAL=${CLEANUP_INTERVAL:-1h}
+      - FILE_MAX_AGE=${FILE_MAX_AGE:-24h}
+      - UPLOAD_MAX_SIZE=${UPLOAD_MAX_SIZE:-1073741824}
+      - LOG_PATH=${LOG_PATH:-./logs}
+      - LOG_MAX_SIZE=${LOG_MAX_SIZE:-100}
+      - LOG_MAX_BACKUPS=${LOG_MAX_BACKUPS:-3}
+      - LOG_MAX_AGE=${LOG_MAX_AGE:-7}
+    volumes:
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${FRONTEND_PORT:-9449}:9449"
+    volumes:
+      - ./frontend/ssl:/etc/nginx/conf.d:ro
+    depends_on:
+      - backend
+    restart: unless-stopped

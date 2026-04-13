@@ -1,0 +1,37 @@
+export const LANGUAGES = [
+  { code: 'BG', name: 'Bulgarian', flag: '🇧🇬' },
+  { code: 'CS', name: 'Czech', flag: '🇨🇿' },
+  { code: 'DA', name: 'Danish', flag: '🇩🇰' },
+  { code: 'DE', name: 'German', flag: '🇩🇪' },
+  { code: 'EL', name: 'Greek', flag: '🇬🇷' },
+  { code: 'EN', name: 'English', flag: '🇬🇧' },
+  { code: 'ES', name: 'Spanish', flag: '🇪🇸' },
+  { code: 'ET', name: 'Estonian', flag: '🇪🇪' },
+  { code: 'FI', name: 'Finnish', flag: '🇫🇮' },
+  { code: 'FR', name: 'French', flag: '🇫🇷' },
+  { code: 'HU', name: 'Hungarian', flag: '🇭🇺' },
+  { code: 'ID', name: 'Indonesian', flag: '🇮🇩' },
+  { code: 'IT', name: 'Italian', flag: '🇮🇹' },
+  { code: 'JA', name: 'Japanese', flag: '🇯🇵' },
+  { code: 'KO', name: 'Korean', flag: '🇰🇷' },
+  { code: 'LT', name: 'Lithuanian', flag: '🇱🇹' },
+  { code: 'LV', name: 'Latvian', flag: '🇱🇻' },
+  { code: 'NB', name: 'Norwegian', flag: '🇳🇴' },
+  { code: 'NL', name: 'Dutch', flag: '🇳🇱' },
+  { code: 'PL', name: 'Polish', flag: '🇵🇱' },
+  { code: 'PT', name: 'Portuguese', flag: '🇵🇹' },
+  { code: 'RO', name: 'Romanian', flag: '🇷🇴' },
+  { code: 'RU', name: 'Russian', flag: '🇷🇺' },
+  { code: 'SK', name: 'Slovak', flag: '🇸🇰' },
+  { code: 'SL', name: 'Slovenian', flag: '🇸🇮' },
+  { code: 'SV', name: 'Swedish', flag: '🇸🇪' },
+  { code: 'TR', name: 'Turkish', flag: '🇹🇷' },
+  { code: 'UK', name: 'Ukrainian', flag: '🇺🇦' },
+  { code: 'ZH', name: 'Chinese', flag: '🇨🇳' },
+];
+
+export const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+export const ALLOWED_FILE_TYPES = [
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'text/plain',
+];
