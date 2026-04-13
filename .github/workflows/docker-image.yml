@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Build the Docker image
       run: docker build ./backend --tag deeplx-web:$(date +%s)
 
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Build the Docker image
       run: docker build ./frontend --tag deeplx-gw:$(date +%s)
 
@@ -42,7 +42,7 @@ jobs:
     needs: build-backend
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
@@ -94,7 +94,7 @@ jobs:
     needs: build-frontend
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
