@@ -23,6 +23,6 @@ COPY --from=builder /app/scripts ./scripts
 
 RUN mkdir -p uploads logs
 
-EXPOSE 8449
+EXPOSE 9448
 
 CMD ["./deeplx-web"]

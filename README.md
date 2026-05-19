@@ -231,6 +231,7 @@ target_lang: ZH
 
 | Variable | Description | Default |
 |----------|-------------|---------|
+| SERVER_HOST | Backend bind host | 127.0.0.1 |
 | SERVER_PORT | Backend internal port | 9448 |
 | BACKEND_PORT | Backend exposed port | 8449 |
 | FRONTEND_PORT | Frontend HTTPS port | 9449 |

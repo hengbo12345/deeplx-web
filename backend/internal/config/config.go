@@ -12,12 +12,13 @@ type Config struct {
 	DeepLXToken string
 
 	// Server Configuration
+	ServerHost string
 	ServerPort string
 	LogLevel   string
 
 	// Upload Configuration
-	UploadPath    string
-	MaxFileSize   int64
+	UploadPath  string
+	MaxFileSize int64
 
 	// Cleanup Configuration
 	CleanupInterval time.Duration
@@ -25,14 +26,14 @@ type Config struct {
 	UploadMaxSize   int64
 
 	// Log Configuration
-	LogPath        string
-	LogMaxSize     int
-	LogMaxBackups  int
-	LogMaxAge      int
+	LogPath       string
+	LogMaxSize    int
+	LogMaxBackups int
+	LogMaxAge     int
 
 	// Task Configuration
-	WorkerCount      int
-	TaskMaxAge       time.Duration
+	WorkerCount         int
+	TaskMaxAge          time.Duration
 	TaskCleanupInterval time.Duration
 
 	// Auth Configuration
@@ -41,21 +42,22 @@ type Config struct {
 
 func Load() *Config {
 	return &Config{
-		DeepLXURL:       getEnv("DEEPLX_URL", "http://localhost:1188"),
-		DeepLXToken:     getEnv("DEEPLX_TOKEN", ""),
-		ServerPort:      getEnv("SERVER_PORT", "9448"),
-		LogLevel:        getEnv("LOG_LEVEL", "info"),
-		UploadPath:      getEnv("UPLOAD_PATH", "./uploads"),
-		MaxFileSize:     getInt64Env("MAX_FILE_SIZE", 10485760), // 10MB
-		CleanupInterval: getDurationEnv("CLEANUP_INTERVAL", 1*time.Hour),
-		FileMaxAge:      getDurationEnv("FILE_MAX_AGE", 24*time.Hour),
-		UploadMaxSize:   getInt64Env("UPLOAD_MAX_SIZE", 1073741824), // 1GB
-		LogPath:         getEnv("LOG_PATH", "./logs"),
-		LogMaxSize:      getIntEnv("LOG_MAX_SIZE", 100),
-		LogMaxBackups:   getIntEnv("LOG_MAX_BACKUPS", 3),
-		LogMaxAge:       getIntEnv("LOG_MAX_AGE", 7),
-		WorkerCount:     getIntEnv("WORKER_COUNT", 5),
-		TaskMaxAge:      getDurationEnv("TASK_MAX_AGE", 1*time.Hour),
+		DeepLXURL:           getEnv("DEEPLX_URL", "http://localhost:1188"),
+		DeepLXToken:         getEnv("DEEPLX_TOKEN", ""),
+		ServerHost:          getEnv("SERVER_HOST", "127.0.0.1"),
+		ServerPort:          getEnv("SERVER_PORT", "9448"),
+		LogLevel:            getEnv("LOG_LEVEL", "info"),
+		UploadPath:          getEnv("UPLOAD_PATH", "./uploads"),
+		MaxFileSize:         getInt64Env("MAX_FILE_SIZE", 10485760), // 10MB
+		CleanupInterval:     getDurationEnv("CLEANUP_INTERVAL", 1*time.Hour),
+		FileMaxAge:          getDurationEnv("FILE_MAX_AGE", 24*time.Hour),
+		UploadMaxSize:       getInt64Env("UPLOAD_MAX_SIZE", 1073741824), // 1GB
+		LogPath:             getEnv("LOG_PATH", "./logs"),
+		LogMaxSize:          getIntEnv("LOG_MAX_SIZE", 100),
+		LogMaxBackups:       getIntEnv("LOG_MAX_BACKUPS", 3),
+		LogMaxAge:           getIntEnv("LOG_MAX_AGE", 7),
+		WorkerCount:         getIntEnv("WORKER_COUNT", 5),
+		TaskMaxAge:          getDurationEnv("TASK_MAX_AGE", 1*time.Hour),
 		TaskCleanupInterval: getDurationEnv("TASK_CLEANUP_INTERVAL", 5*time.Minute),
 		AuthToken:           getEnv("AUTH_TOKEN", ""),
 	}

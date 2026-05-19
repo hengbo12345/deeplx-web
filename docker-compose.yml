@@ -8,6 +8,7 @@ services:
     environment:
       - DEEPLX_URL=${DEEPLX_URL:-http://host.docker.internal:1188}
       - DEEPLX_TOKEN=${DEEPLX_TOKEN}
+      - SERVER_HOST=${SERVER_HOST:-0.0.0.0}
       - SERVER_PORT=${SERVER_PORT:-9448}
       - LOG_LEVEL=${LOG_LEVEL:-info}
       - UPLOAD_PATH=${UPLOAD_PATH:-./uploads}

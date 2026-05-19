@@ -112,7 +112,7 @@ func main() {
 		os.Exit(0)
 	}()
 
-	addr := "127.0.0.1:" + cfg.ServerPort
+	addr := cfg.ServerHost + ":" + cfg.ServerPort
 	utils.Logger.Info("Starting server",
 		zap.String("address", addr),
 		zap.String("deepLX_url", cfg.DeepLXURL),
